@@ -1,0 +1,5 @@
+{
+  "reporter": "mochawesome",
+  "reporter-options": "reportDir=purecode report,reportFilename=index",
+  "spec": "src/tests/**/*.test.js"
+}

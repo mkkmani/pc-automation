@@ -1,0 +1,230 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 0,
+    "pending": 0,
+    "failures": 3,
+    "start": "2024-07-11T08:39:02.619Z",
+    "end": "2024-07-11T08:39:38.870Z",
+    "duration": 36251,
+    "testsRegistered": 3,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "45e243f8-193d-48f5-81f7-3171bd26719f",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b7e14788-0950-43b1-b87f-102d7d64b868",
+          "title": "Signin Tests",
+          "fullFile": "/home/manikanta/pmc/src/tests/signIn.test.js",
+          "file": "/src/tests/signIn.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Signin Tests\"",
+              "fullTitle": "Signin Tests \"before all\" hook in \"Signin Tests\"",
+              "timedOut": false,
+              "duration": 417,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "browser = await puppeteer.launch({\n  headless: false, defaultViewport: {\n    width: 1860,\n    height: 1080\n  }\n});\npage = await browser.newPage();",
+              "err": {},
+              "uuid": "b459fdc4-2bec-4c04-83e5-3d1d6f846cc2",
+              "parentUUID": "b7e14788-0950-43b1-b87f-102d7d64b868",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to checkout page for unsubscribed user",
+              "fullTitle": "Signin Tests Navigate to checkout page for unsubscribed user",
+              "timedOut": true,
+              "duration": 10001,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(baseUrl);\nconst signInButton = await getButtonByText(page, 'Sign in');\nawait signInButton.click();\nawait page.waitForSelector('input#email');\nawait page.waitForSelector('input#password');\nawait page.type('input#email', notSubEmail);\nawait page.type('input#password', notSubPassword);\nconst submitButton = await getButtonByText(page, 'CONTINUE');\nawait submitButton.click();\nawait delay(8000)\nconst url = page.url();\nconsole.log('Navigated to:', url);\nif (!url.includes('freetrial')) {\n  throw new Error('Failed to navigate to the aiprojects page.');\n}",
+              "err": {
+                "message": "Error: Timeout of 10000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/manikanta/pmc/src/tests/signIn.test.js)",
+                "estack": "Error: Timeout of 10000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/manikanta/pmc/src/tests/signIn.test.js)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+                "diff": null
+              },
+              "uuid": "fdd9c31a-9c92-4a22-b154-586645e3eb48",
+              "parentUUID": "b7e14788-0950-43b1-b87f-102d7d64b868",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate to aiprojects page for subscribed user",
+              "fullTitle": "Signin Tests Navigate to aiprojects page for subscribed user",
+              "timedOut": true,
+              "duration": 10002,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(baseUrl);\nconst signInButton = await getButtonByText(page, 'Sign in');\nawait signInButton.click();\nawait page.waitForSelector('input#email');\nawait page.waitForSelector('input#password');\nawait page.type('input#email', subEmail);\nawait page.type('input#password', subPassword);\nconst submitButton = await getButtonByText(page, 'CONTINUE');\nawait submitButton.click();\nawait delay(8000)\nconst url = page.url();\nconsole.log('Navigated to:', url);\nif (!url.includes('aiprojets')) {\n  throw new Error('Failed to navigate to the aiprojects page.');\n}",
+              "err": {
+                "message": "Error: Timeout of 10000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/manikanta/pmc/src/tests/signIn.test.js)",
+                "estack": "Error: Timeout of 10000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (/home/manikanta/pmc/src/tests/signIn.test.js)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)",
+                "diff": null
+              },
+              "uuid": "3b98c665-b999-481a-9581-b641e2ed8711",
+              "parentUUID": "b7e14788-0950-43b1-b87f-102d7d64b868",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "fdd9c31a-9c92-4a22-b154-586645e3eb48",
+            "3b98c665-b999-481a-9581-b641e2ed8711"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 20003,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "42e732ca-965e-46c3-b1c6-85baeb7bcad3",
+          "title": "Signup Tests",
+          "fullFile": "/home/manikanta/pmc/src/tests/signUp.test.js",
+          "file": "/src/tests/signUp.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Signup Tests\"",
+              "fullTitle": "Signup Tests \"before all\" hook in \"Signup Tests\"",
+              "timedOut": false,
+              "duration": 422,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "browser = await puppeteer.launch({\n  headless: false, defaultViewport:\n    { width: 1860, height: 1080 }\n});\npage = await browser.newPage();",
+              "err": {},
+              "uuid": "fb52f8ae-ecd5-4c09-9bb9-e263db447fcd",
+              "parentUUID": "42e732ca-965e-46c3-b1c6-85baeb7bcad3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Signup Tests\"",
+              "fullTitle": "Signup Tests \"after all\" hook in \"Signup Tests\"",
+              "timedOut": false,
+              "duration": 95,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await browser.close();",
+              "err": {},
+              "uuid": "ebc58358-cbe5-4239-af82-55451681ae5a",
+              "parentUUID": "42e732ca-965e-46c3-b1c6-85baeb7bcad3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should sign up successfully",
+              "fullTitle": "Signup Tests should sign up successfully",
+              "timedOut": false,
+              "duration": 15307,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(20000);\nawait page.goto(baseUrl);\n\nconst signUpSpan = await getElementByText(page, \"Sign up - It's Free\", 'span');\nawait page.evaluate(span => {\n  span.scrollIntoView();\n}, signUpSpan);\nawait delay(2000);\nawait signUpSpan.click();\nawait page.waitForSelector('input#email');\nawait page.waitForSelector('input#password');\nawait page.type('input#email', randomEmail);\nawait page.type('input#password', randomPassword);\nconst submitButton = await getElementByText(page, 'Create My Account', 'button');\nawait page.evaluate(span => {\n  span.scrollIntoView();\n}, submitButton);\nawait delay(1300);\nawait submitButton.click();\nawait page.waitForNavigation({ waitUntil: 'networkidle0' });\nconst url = page.url();\nconsole.log('Navigated to:', url);",
+              "err": {
+                "message": "Error: Navigating frame was detached",
+                "estack": "Error: Navigating frame was detached\n    at #onFrameDetached (file:///home/manikanta/pmc/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/LifecycleWatcher.js:97:47)\n    at file:///home/manikanta/pmc/node_modules/puppeteer-core/lib/esm/third_party/mitt/mitt.js:36:7\n    at Array.map (<anonymous>)\n    at Object.emit (file:///home/manikanta/pmc/node_modules/puppeteer-core/lib/esm/third_party/mitt/mitt.js:35:20)\n    at CdpFrame.emit (file:///home/manikanta/pmc/node_modules/puppeteer-core/lib/esm/puppeteer/common/EventEmitter.js:77:23)\n    at #removeFramesRecursively (file:///home/manikanta/pmc/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/FrameManager.js:392:15)\n    at #onClientDisconnect (file:///home/manikanta/pmc/node_modules/puppeteer-core/lib/esm/puppeteer/cdp/FrameManager.js:88:42)",
+                "diff": null
+              },
+              "uuid": "8b8a64e8-c1b7-4f8d-9938-982acd33d2ea",
+              "parentUUID": "42e732ca-965e-46c3-b1c6-85baeb7bcad3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8b8a64e8-c1b7-4f8d-9938-982acd33d2ea"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15307,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.6.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "purecode report",
+        "reportFilename": "index"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
